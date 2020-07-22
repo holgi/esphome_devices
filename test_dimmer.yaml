@@ -1,0 +1,36 @@
+substitutions:
+  device_name: livingroom
+  human_readable_name: Livingroom
+  static_ip: 192.168.1.220
+  update_interval: 1min
+
+
+esphome:
+  name: $device_name
+  platform: ESP32
+  board: featheresp32
+
+<<: !include common/_common.yaml
+
+web_server:
+
+logger:
+  level: DEBUG
+  #baud_rate: 0
+
+sensor:
+  - !include common/sensor/wifi-signal.yaml
+  - !include common/sensor/uptime.yaml
+
+binary_sensor:
+  - !include common/binary_sensor/status.yaml
+
+output:
+  - platform: ledc
+    pin: 13
+    id: led_1
+
+light:
+  - platform: monochromatic
+    name: $human_readable_name LED
+    output: led_1

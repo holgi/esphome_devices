@@ -1,0 +1,4 @@
+# Example configuration entry
+ota:
+  safe_mode: True
+  password: !secret ota_password

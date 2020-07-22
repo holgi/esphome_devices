@@ -1,0 +1,17 @@
+wifi:
+  ssid: SpecOps24Swindon
+  password: !secret wifi_password
+  fast_connect: True
+
+  # Optional manual IP
+  manual_ip:
+    static_ip: $static_ip
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: $human_readable_name Fallback AP
+    password: !secret fallback_ap_password
+
+captive_portal:

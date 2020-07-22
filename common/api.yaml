@@ -1,0 +1,3 @@
+# connecting to a bridge provider
+api:
+#   password: !secrets api_bridge_password
